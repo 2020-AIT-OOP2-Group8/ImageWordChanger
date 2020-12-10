@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="main.css">
+        <script defer src="{{ url_for('static', filename='image_process.js') }}"></script>
+        <title>文字認識</title>
+    </head>
+    <body>
+        <div>
+            <a href="main.html" aria-disabled="true" tabindex="-1">ホーム</a>
+            <a href="changed_files.html">変換済み画像一覧</a>
+        </div>
+        <h1>文字認識</h1>
+        <form method = "POST" enctype = multipart/form-data>
+        <p>
+            <input type="file" name=file accept="image/*">
+        </p>
+        <p>
+            <input type ="submit" value = "アップロード">
+            <input type="reset" value="キャンセル">
+        </p>
+        <h2>{{ result_message }}</h2>
+        </form>
+    </body>
+</html>
