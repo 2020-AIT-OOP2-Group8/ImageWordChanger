@@ -23,7 +23,6 @@ fetch(`/files_list`)
                 let newImageElement = document.createElement('img');
                 newImageElement.setAttribute('class', 'upload_image');
                 newImageElement.src = './static/upload_images/' + imgFilename;
-                newImageElement.style.width = '90%';
                 newImageElement.alt = '元の画像' + imgFilename;
                 // ファイル名要素を生成
                 let newFilenameElement = document.createElement('p');

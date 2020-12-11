@@ -4,3 +4,6 @@
     float: left;
     margin-right: 0%;
 }
+#upload_images img{
+    width: 90%;
+}
