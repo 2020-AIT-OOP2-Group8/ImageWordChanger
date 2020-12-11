@@ -10,7 +10,7 @@ fetch(`/files_list`)
             ex.json == {"length":2, "0":aaa.png, "1":bbb.jpg}
             */
 
-            const baseDiv = document.getElementById('upload_images');
+            const baseDiv = document.getElementById('upload_image_list');
 
             // Jsonで受け取ったlengthの回数を回す
             for (let index = 0; index < data['length']; index++) {
@@ -18,6 +18,7 @@ fetch(`/files_list`)
                 let imgFilename = data[index];
                 // div要素を生成
                 let newDivElement = document.createElement('div');
+                newDivElement.setAttribute('class', 'upload_image_set');
                 
                 // img要素を生成
                 let newImageElement = document.createElement('img');

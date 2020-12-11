@@ -1,9 +1,9 @@
-#upload_images div{
+div.upload_image_set{
     width: 250px;
     text-align: center;
     float: left;
     margin-right: 0%;
 }
-#upload_images img{
+img.upload_image{
     width: 90%;
 }
