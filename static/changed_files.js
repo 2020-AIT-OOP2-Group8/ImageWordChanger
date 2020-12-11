@@ -1,7 +1,3 @@
-function fileDownload(params) {
-    console.log('download now...')
-}
-
 fetch(`/files_list`)
     .then(response => {
         console.log(response.status)    // OK(200)//NotFound(400)
