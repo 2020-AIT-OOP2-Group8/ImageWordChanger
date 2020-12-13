@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 import os
 
 UPLOAD_FOLDER = './static/upload_images'
+FILE_TYPE = set(['jpg', 'png'])
 
 app = Flask(__name__)
 

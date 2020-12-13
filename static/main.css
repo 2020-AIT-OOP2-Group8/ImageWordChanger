@@ -1,9 +1,17 @@
-div.upload_image_set{
-    width: 250px;
+.upload_image_set{
+    width: 225px;
     text-align: center;
     float: left;
-    margin-right: 0%;
+    margin-right: 3%;
+    margin-left: 3%;
+    margin-bottom: 5%;
 }
-img.upload_image{
-    width: 90%;
+.upload_image{
+    max-width: 225px;
+    max-height: 225px;
+}
+.upload_name{
+    word-wrap: break-word;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
