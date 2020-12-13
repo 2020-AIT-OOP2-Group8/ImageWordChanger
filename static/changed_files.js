@@ -30,7 +30,7 @@ fetch(`/files_list`)
                 let newDownloadElement = document.createElement('a');
                 newDownloadElement.href = './static/output_files/' + imgFilename + '.txt';
                 newDownloadElement.setAttribute('download', '');
-                let newDownloadText = document.createTextNode('画像ダウンロード');
+                let newDownloadText = document.createTextNode('テキストをダウンロード');
                 newDownloadElement.appendChild(newDownloadText);
                 newDownloadElement.setAttribute('class', 'download_button')
 
