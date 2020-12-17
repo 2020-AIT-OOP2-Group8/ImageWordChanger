@@ -8,16 +8,26 @@ app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def allwed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in FILE_TYPE
+
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
+        cause_message = ""
 
         if file.filename == "":
             return render_template('main.html', result_message="ファイルが選択されていません")
 
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-        return render_template('main.html', result_message="アップロードが完了しました")
+        if(allwed_file(file.filename)):
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+            result_message = "'{}'のアップロードが完了しました".format(file.filename)
+        else:
+            result_message = "'{}'のアップロードに失敗しました".format(file.filename)
+            cause_message = "'.jpg','.png'ファイルのみ指定できます"
+            
+        return render_template('main.html', result_message=result_message, cause_message=cause_message)
 
     return render_template('main.html')
     
