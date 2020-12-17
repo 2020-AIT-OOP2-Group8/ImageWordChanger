@@ -36,7 +36,15 @@ def createWordImage(filename):
         lang='jpn',
         builder=pyocr.builders.TextBuilder()
     )
-    print(txt, end = '\n\n')
+
+    filename = filename.split('.')[0]
+    
+    # テキストファイルの生成
+    f = open(f'static/output_files/{filename}.txt', 'w')
+    f.write(txt)
+    f.close
+    
+    print(txt)
 
     print('--------------------------------------------')
     print('ファイルのアップロードを待機中')
