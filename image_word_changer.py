@@ -12,6 +12,8 @@ from PIL import Image
 import pyocr
 import pyocr.builders
 
+import datetime
+
 # 監視対象ディレクトリを指定する
 target_dir = 'static/upload_images'
 
@@ -37,10 +39,16 @@ def createWordImage(filename):
         builder=pyocr.builders.TextBuilder()
     )
 
-    filename = filename.split('.')[0]
-    
+    # 現在時間を取得
+    now = datetime.datetime.now()
+    new_filename = now.strftime("%Y/%m/%d").replace("/", "") + now.strftime("%X").replace(":", "")
+
+    # アップロードされたファイルの名前を変更
+    extension = filename.split('.')[-1]
+    os.rename(f'static/upload_images/{filename}', f'static/upload_images/{new_filename}.{extension}')
+
     # テキストファイルの生成
-    f = open(f'static/output_files/{filename}.txt', 'w')
+    f = open(f'static/output_files/{new_filename}.txt', 'w')
     f.write(txt)
     f.close
     
