@@ -11,14 +11,15 @@
         <button type="button" id='file_button' onclick="location.href='/changed_files'">変換済ファイル一覧</button>
         <h1 id='main_title'>文字認識</h1>
         <form method = "POST" enctype = multipart/form-data>
-        <p>
-        <input type="file" id='file_select' name=file accept="image/*">
-        </p>
+        <div>
+            <input type="file" id='file_select' name=file>
+        </div>
         <p>
         <input type ="submit" id='change_button' value = "アップロード">
         <input type="reset" id='cansel_button' value="キャンセル">
         </p>
         <h2 id='change_result'>{{ result_message }}</h2>
+        <h2 id='change_result'>{{ cause_message }}</h2>
         </form>
     </body>
 </html>
