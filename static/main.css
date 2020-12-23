@@ -3,6 +3,47 @@
     --upload_image_size: 225px;
 
 }
+
+body{
+}
+#main_title{
+    font-size:80px;
+    font-weight:100;
+    text-align:center;
+}
+#main_button{
+    border-color:orange;
+    height:50px;
+    width:150px;
+    display: block;
+    margin: 0 0 0 auto;
+}
+#file_button{
+    border-color:orange;
+    height:50px;
+    width:150px;
+    display: block;
+    margin: 0 0 0 auto;
+}
+#file_select{
+    display: block;
+}
+#change_button{
+    height:50px;
+    width:150px;
+    background-color:rgb(3, 197, 245);
+}
+#cansel_button{
+    height:50px;
+    width:150px;
+    background-color:rgb(3, 197, 245);
+}
+#file_title{
+    text-align:center;
+}
+#upoad_image_list{
+
+}
 /* 画像を横に並べる */
 .upload_image_set{
     width: var(--upload_image_size);
@@ -38,4 +79,7 @@
     text-overflow: ellipsis;
     -webkit-text-overflow: ellipsis;
 	-o-text-overflow: ellipsis;
+}
+.download_button{
+
 }
