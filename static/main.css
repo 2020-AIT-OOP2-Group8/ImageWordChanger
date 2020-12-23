@@ -1,17 +1,41 @@
+/* 変数宣言 */
+:root{
+    --upload_image_size: 225px;
+
+}
+/* 画像を横に並べる */
 .upload_image_set{
-    width: 225px;
+    width: var(--upload_image_size);
     text-align: center;
     float: left;
-    margin-right: 3%;
-    margin-left: 3%;
-    margin-bottom: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
 }
+/* 画像の枠を一定にすることで縦横比の違う画像同士でもデザインが崩れない */
+.upload_image_box{
+    position: relative;
+    width: var(--upload_image_size);
+    height: var(--upload_image_size);
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 0;
+}
+/* 枠からはみ出ないように画像の最大サイズを指定 */
 .upload_image{
-    max-width: 225px;
-    max-height: 225px;
+    width: auto;
+    height: auto;
+    max-width: var(--upload_image_size);
+    max-height: var(--upload_image_size);
 }
+/* 名前を自動で省略す… */
 .upload_name{
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
     margin-top: 0%;
     margin-bottom: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
 }
