@@ -19,23 +19,26 @@ fetch(`/files_list`)
                 // img要素を生成
                 let newImageElement = document.createElement('img');
                 newImageElement.setAttribute('class', 'upload_image');
-                newImageElement.src = './static/upload_images/' + imgFilename;
+                newImageElement.src = './static/upload_images/' + imgFilename;  // ./static/upload_images/20201215
                 newImageElement.alt = '元の画像' + imgFilename;
+                let newImageDivElement = document.createElement('div');
+                newImageDivElement.setAttribute('class', 'upload_image_box');
+                newImageDivElement.appendChild(newImageElement);
                 // ファイル名要素を生成
                 let newFilenameElement = document.createElement('p');
-                let newFilenameText = document.createTextNode(imgFilename);
+                let newFilenameText = document.createTextNode(imgFilename.split('.')[0]);   // 20201215
                 newFilenameElement.appendChild(newFilenameText);
                 newFilenameElement.setAttribute('class', 'upload_name')
                 // ダウンロードボタンを生成
                 let newDownloadElement = document.createElement('a');
-                newDownloadElement.href = './static/output_files/' + imgFilename + '.txt';
+                newDownloadElement.href = './static/output_files/' + imgFilename.split('.')[0] + '.txt';    // ./static/output_files/20201215.txt
                 newDownloadElement.setAttribute('download', '');
                 let newDownloadText = document.createTextNode('テキストをダウンロード');
                 newDownloadElement.appendChild(newDownloadText);
                 newDownloadElement.setAttribute('class', 'download_button')
 
                 // 画像1つ分の要素をdivにまとめて親divに追加
-                newDivElement.appendChild(newImageElement);
+                newDivElement.appendChild(newImageDivElement);
                 newDivElement.appendChild(newFilenameElement);
                 newDivElement.appendChild(newDownloadElement);
                 baseDiv.appendChild(newDivElement);
