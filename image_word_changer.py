@@ -40,6 +40,10 @@ def createWordImage(filename):
         builder=pyocr.builders.TextBuilder()
     )
 
+    # ファイルの拡張子を消去
+    index = filename.rfind('.')
+    filename = filename[0:index]
+
     # テキストファイルの生成
     f = open(f'{output_dir}/{filename}.txt', 'w')
     f.write(txt)
