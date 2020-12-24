@@ -1,8 +1,10 @@
 from flask import Flask, request, render_template, jsonify
+from werkzeug.utils import secure_filename
 import os
+import datetime
 
 UPLOAD_FOLDER = './static/upload_images'
-FILE_TYPE = set(['jpg', 'png'])
+FILE_TYPE = set(['jpg', 'png', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 
@@ -13,24 +15,28 @@ def allwed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
-    if request.method == 'POST':
+    if request.method=='POST':
+        time = datetime.datetime.now()
         file = request.files['file']
+        filename = str(time.year)+str(time.month)+str(time.day)+str(time.hour)+str(time.minute)+str(time.second)+".jpg"
         cause_message = ""
 
-        if file.filename == "":
+        if file.filename=="":
             return render_template('main.html', result_message="ファイルが選択されていません")
 
-        if(allwed_file(file.filename)):
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-            result_message = "'{}'のアップロードが完了しました".format(file.filename)
+        if allwed_file(file.filename):
+            if(allwed_file(filename)):
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                filename = secure_filename(filename)
+                result_message = "'{}'を'{}'としてアップロードしました".format(file.filename,filename)
+                return render_template('main.html', result_message=result_message, cause_message=cause_message)
         else:
             result_message = "'{}'のアップロードに失敗しました".format(file.filename)
-            cause_message = "'.jpg','.png'ファイルのみ指定できます"
-            
-        return render_template('main.html', result_message=result_message, cause_message=cause_message)
+            cause_message = "'.jpg','.png'ファイルのみアップロードできます"
+            return render_template('main.html', result_message=result_message, cause_message=cause_message)
 
     return render_template('main.html')
-    
+
 @app.route('/changed_files')
 def changed_files():
     return render_template('changed_files.html')
@@ -49,6 +55,6 @@ def files_list():
     for index, f in enumerate(filenamesList):
         imagesJson[str(index)] = f
     return jsonify(imagesJson)
-    
+
 if __name__ == "__main__":
     app.run()

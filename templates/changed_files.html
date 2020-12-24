@@ -8,8 +8,10 @@
     <title>変換済みファイル一覧</title>
 </head>
 <body>
-    <button type="button" id='main_button' onclick="location.href='/'">メインメニュー</button>
-    <button type="button" id='file_button' onclick="location.href='/changed_files'" disabled>変換済ファイル一覧</button>
+    <div id="menu">
+        <button type="button" id="topPage" onclick="location.href='/'" disabled>メインメニュー</button>
+        <button type="button" id="listPage" onclick="location.href='/changed_files'">変換済ファイル一覧</button>
+    </div>
     <h1 id="file_title">変換済みファイル一覧</h1>
     <div id="upload_image_list">
         <!-- 表示サンプル -->

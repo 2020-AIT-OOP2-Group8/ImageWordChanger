@@ -3,23 +3,33 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link rel="stylesheet" href="static/main.css">
+        <link rel="stylesheet" href="./static/main.css">
         <title>文字認識</title>
     </head>
     <body>
-        <button type="button" id='main_button' onclick="location.href='/'" disabled>メインメニュー</button>
-        <button type="button" id='file_button' onclick="location.href='/changed_files'">変換済ファイル一覧</button>
-        <h1 id='main_title'>文字認識</h1>
-        <form method = "POST" enctype = multipart/form-data>
-        <div>
-            <input type="file" id='file_select' name=file>
+        <div id="menu">
+            <button type="button" id="topPage" onclick="location.href='/'" disabled>メインメニュー</button>
+            <button type="button" id="listPage" onclick="location.href='/changed_files'">変換済ファイル一覧</button>
         </div>
-        <p>
-        <input type ="submit" id='change_button' value = "アップロード">
-        <input type="reset" id='cansel_button' value="キャンセル">
-        </p>
-        <h2 id='change_result'>{{ result_message }}</h2>
-        <h2 id='change_result'>{{ cause_message }}</h2>
+        <h1 id="mainTitle">文字認識</h1>
+        <form method="POST" enctype="multipart/form-data">
+        <div id="inputFile">
+            <div id="inputFile_area">
+                <p id="drop_area">ここにファイルをドラッグ&ドロップ</p>
+                <div id="selectFile">
+                    <input type="file" id="selectFile_button" name="file">
+                </div>
+            </div>
+        </div>
+        <div id="decision">
+            <input type ="submit" id="upload_button" value="アップロード">
+            <input type="reset" id="cansel_button" value="キャンセル">
+        </div>
         </form>
+        <div id="resultMessage">
+            <h2>{{ result_message }}</h2>
+            <h2>{{ cause_message }}</h2>
+        </div>
+        <script type="text/javascript" src="/static/main.js"></script>
     </body>
 </html>
