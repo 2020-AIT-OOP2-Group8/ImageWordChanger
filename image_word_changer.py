@@ -40,6 +40,11 @@ def createWordImage(filename):
         builder=pyocr.builders.TextBuilder()
     )
 
+    # 丸で囲まれた数字を通常の数字の表記にする ex.① →１
+    for i in range(len(txt)):
+        if(r'\xe2\x91\xa' in str(txt[i].encode('utf-8'))):
+            txt = txt.replace(txt[i], str(int(str(txt[i].encode("utf-8"))[-2]) + 1))
+
     # ファイルの拡張子を消去
     index = filename.rfind('.')
     filename = filename[0:index]
