@@ -7,19 +7,22 @@
         <title>文字認識</title>
     </head>
     <body>
-        <button type="button" id='main_button' onclick="location.href='/'" disabled>メインメニュー</button>
-        <button type="button" id='file_button' onclick="location.href='/changed_files'">変換済ファイル一覧</button>
-        <h1 id='main_title'>文字認識</h1>
-        <form method = "POST" enctype = multipart/form-data>
-        <div>
-            <input type="file" id='file_select' name=file>
+        <button type="button" id="main_button" onclick="location.href='/'" disabled>メインメニュー</button>
+        <button type="button" id="file_button" onclick="location.href='/changed_files'">変換済ファイル一覧</button>
+        <h1 id="main_title">文字認識</h1>
+        <form method="POST" enctype="multipart/form-data">
+        <div id="dropArea" style="border: 1px solid; padding: 30px;">
+            <input type="file" id="file_select" name="file">
         </div>
         <p>
-        <input type ="submit" id='change_button' value = "アップロード">
-        <input type="reset" id='cansel_button' value="キャンセル">
+        <input type ="submit" id="change_button" value="アップロード">
+        <input type="reset" id="cansel_button" value="キャンセル">
         </p>
-        <h2 id='change_result'>{{ result_message }}</h2>
-        <h2 id='change_result'>{{ cause_message }}</h2>
         </form>
+        <p id="change_result">
+            <h2>{{ result_message }}</h2>
+            <h2>{{ cause_message }}</h2>
+        </p>
+        <script type="text/javascript" src="/static/main.js"></script>
     </body>
 </html>
