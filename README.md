@@ -1,60 +1,52 @@
-# teamsの仕様書のコピペ
+# Image Word Changer
+## 画像をテキストファイルに変換するWebサイト
+Webサイトから画像をアップロードするだけで、簡単にテキストファイルに変換することができます。
 
-## 機能 
+## 動作確認環境
+開発時には以下の環境で動作確認を行っています。
 
-画像アップロード 
+- Python      3.8.5
+- Flask       1.1.2
+- watchdog    0.10.4
+- Tessearact  4.1.1
 
-アップロードした画像ファイルの一覧表示 
+## 導入の仕方
+実行にはPython3.xとFlaskとwatchdogとpyocrとTessearactとのインストールとjpn.traineddataの取得が必要です。
 
-文字認識処理後のファイル一覧表示 
+### Tessearactのインストール方法
+```zsh
+$ sudo pip install pyocr
+$ brew install tesseract
+```
+### jpn.traineddataの取得方法
 
-ダウンロードボタンでダウンロード 
+```zsh
+$ wget https://github.com/tesseract-ocr/tessdata/raw/4.00/jpn.traineddata
+$ mv jpn.traineddata /usr/local/Cellar/tesseract/4.1.1/share/tessdata/
+```
 
-ドラッグアンドドロップでアップロード 
+このプロジェクトのプログラム自体は、実行可能形式のためインストールの必要はありません。
 
- 
+## 実行方法
+以下を実行して[ローカルホストにアクセス](http://localhost:5000)
+### ソースファイルのダウンロード
+```zsh
+$ git clone https://github.com/2020-AIT-OOP2-Group8/ImageWordChanger
+```
+### 画像処理プログラムの実行
+```zsh
+$ cd ImageWordChanger
+$ python image_word_changer.py
+```
+### Webサーバの実行
+```zsh
+$ cd ImageWordChanger
+$ python web.py
+```
 
-### 追加予定
-
-保存拡張子の選択 
-
-## 作業 
-
-文字認識部分　平岩 
-
-メイン画面（アップロードも）　鈴木 
-
-変換済みファイル一覧（ダウンロードも）　大谷 
-
-css　伊藤 
-
- 
-
-## ディレクトリ構造 
-
-web.py 
-
-image_word_changer.py 
-
-templetes 
-
-|- main.html　：アップロードページ 
-
-|- changed_files.html　：変換済み一覧ページ 
-
-static 
-
-   |- main.js 
-
-   |- changed_files.js 
-
-   |- upload_images 
-
-   |- output_files 
-
-   |- main.css 
-
-## ファイル名
-
-例：image.pngがアップロードされた場合、python側でアップロードされたファイルのファイル名を「投稿時間.png」に変換。ダウンロード(アウトプット)側のファイル名も「投稿時間.txt」という名前で保存される。
-投稿時間 例：20201217150123
+## 制作者
+- K19104 宮村一希 : リーダー
+- K19009 伊藤聰真 : Webスタイル
+- K19059 鈴木楓 : Webトップページ
+- K19088 平岩健 : 画像処理・文字認識
+- K17033 大谷慎吾 : Web画像一覧表示

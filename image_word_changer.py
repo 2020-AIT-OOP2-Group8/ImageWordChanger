@@ -12,10 +12,11 @@ from PIL import Image
 import pyocr
 import pyocr.builders
 
-import datetime
-
 # 監視対象ディレクトリを指定する
 target_dir = 'static/upload_images'
+
+# 出力先のディレクトリを指定する
+output_dir = 'static/output_files'
 
 # 対象ファイルの文字を認識
 def createWordImage(filename):
@@ -39,19 +40,16 @@ def createWordImage(filename):
         builder=pyocr.builders.TextBuilder()
     )
 
-    # 現在時間を取得
-    now = datetime.datetime.now()
-    new_filename = now.strftime("%Y/%m/%d").replace("/", "") + now.strftime("%X").replace(":", "")
-
-    # アップロードされたファイルの名前を変更
-    extension = filename.split('.')[-1]
-    os.rename(f'static/upload_images/{filename}', f'static/upload_images/{new_filename}.{extension}')
+    # ファイルの拡張子を消去
+    index = filename.rfind('.')
+    filename = filename[0:index]
 
     # テキストファイルの生成
-    f = open(f'static/output_files/{new_filename}.txt', 'w')
+    f = open(f'{output_dir}/{filename}.txt', 'w')
     f.write(txt)
     f.close
     
+    # 写真に含まれている文字をターミナルに出力
     print(txt)
 
     print('--------------------------------------------')
@@ -60,6 +58,7 @@ def createWordImage(filename):
 # FileSystemEventHandler の継承クラスを作成
 class FileChangeHandler(FileSystemEventHandler):
 
+    # ファイル生成時のイベント
     def on_created(self, event):
         filepath = event.src_path
         filename = os.path.basename(filepath)
