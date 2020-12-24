@@ -1,53 +1,79 @@
-#main_title{
-    font-size:80px;
-    font-weight:100;
-    text-align:center;
+#mainTitle{
+    top: 100px;
+    text-align: center;
+    font-size: 8ex;
+    font-weight: 900;
 }
-#main_button{
-    border-color:orange;
+#menu{
+    text-align: right;
+    height: 100px;
+    background-color: black;
+}
+#topPage{
+    position: relative;
+    top: 20px;
+    right: 20px;
+    height: 60px;
+    width: 150px;
+    display: inline;
+    border-color :black;
+    background-color: white;
+}
+#listPage{
+    position: relative;
+    top: 20px;
+    right: 20px;
+    height:60px;
+    width:150px;
+    display: inline;
+    border-color:black;
+    background-color:white;
+}
+#inputFile_area{
+    position: relative;
+    padding: 200px 0 100px;
+    text-align: center;
+}
+#drop_area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    padding: 100px 0 0;
+    border: 2px dashed black;
+    font-size: large;
+    font-weight: bold;
+}
+#drop_area.dragover {
+    border: 2px solid black;
+}
+#selectFile{
+    position: relative;
+}
+#selectFile_button{
+    text-align: center;
+    width: 300px;
+    height: 50px;
+}
+#decision{
+    position: relative;
+    text-align: center;
+}
+#upload_button{
     height:50px;
     width:150px;
-    display: block;
-    margin: 0 0 0 auto;
-}
-#file_button{
-    border-color:orange;
-    height:50px;
-    width:150px;
-    display: block;
-    margin: 0 0 0 auto;
-}
-#file_select{
-    display: block;
-}
-#change_button{
-    height:50px;
-    width:150px;
-    background-color:rgb(3, 197, 245);
+    display: inline;
+    border-color:  black;
+    background-color:white;
 }
 #cansel_button{
     height:50px;
     width:150px;
-    background-color:rgb(3, 197, 245);
+    display: inline;
+    border-color:  black;
+    background-color:white;
 }
-#file_title{
-    text-align:center;
-}
-
-.upload_image_set{
-    width: 225px;
+#resultMessage{
     text-align: center;
-    float: left;
-    margin-right: 3%;
-    margin-left: 3%;
-    margin-bottom: 5%;
-}
-.upload_image{
-    max-width: 225px;
-    max-height: 225px;
-}
-.upload_name{
-    word-wrap: break-word;
-    margin-top: 0%;
-    margin-bottom: 0%;
 }

@@ -1,6 +1,6 @@
-var dropArea = document.getElementById('dropArea');
+var dropArea = document.getElementById('drop_area');
 
-var inputFile = document.getElementById('file_select');
+var inputFile = document.getElementById('selectFile_button');
 
 dropArea.addEventListener('dragover', function(e){
     e.stopPropagation();
