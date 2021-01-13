@@ -18,7 +18,8 @@ def upload_file():
     if request.method=='POST':
         time = datetime.datetime.now()
         file = request.files['file']
-        filename = str(time.year)+str(time.month)+str(time.day)+str(time.hour)+str(time.minute)+str(time.second)+".jpg"
+        # "'%02d' % "ですべてのときに2桁にする
+        filename = str(time.year)+str('%02d' % time.month)+str('%02d' % time.day)+str('%02d' % time.hour)+str('%02d' % time.minute)+str('%02d' % time.second)+".jpg"
         cause_message = ""
 
         if file.filename=="":

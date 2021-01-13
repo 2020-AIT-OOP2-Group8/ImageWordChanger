@@ -26,7 +26,11 @@ fetch(`/files_list`)
                 newImageDivElement.appendChild(newImageElement);
                 // ファイル名要素を生成
                 let newFilenameElement = document.createElement('p');
-                let newFilenameText = document.createTextNode(imgFilename.split('.')[0]);   // 20201215
+                // let newFilenameText = document.createTextNode(imgFilename.split('.')[0]);   // 20201215
+                let FileNameList= imgFilename.split('');
+                let makeDate = FileNameList[0] + FileNameList[1] + FileNameList[2] + FileNameList[3] + '年' + FileNameList[4] + FileNameList[5] + '月' + FileNameList[6] + FileNameList[7] + '日' + FileNameList[8] + FileNameList[9] + '時' + FileNameList[10] + FileNameList[11] + '分';
+                let newFilenameText = document.createTextNode(makeDate);   // 20201215
+
                 newFilenameElement.appendChild(newFilenameText);
                 newFilenameElement.setAttribute('class', 'upload_name')
                 // ダウンロードボタンを生成
