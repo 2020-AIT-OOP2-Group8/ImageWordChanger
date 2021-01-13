@@ -1,3 +1,8 @@
+/* 変数宣言 */
+:root{
+    --upload_image_size: 225px;
+
+}
 body{
 }
 #mainTitle{
